@@ -27,7 +27,7 @@ logging.basicConfig(
 # Declare program constants
 
 INPUT_FILE_NAME = "batchfile_2_kelvin.csv"
-OUTPUT_FILE_NAME = "batchfile_3_farenheit.csv"
+OUTPUT_FILE_NAME = "batchfile_3_fahrenheit.csv"
 
 # Define program functions (bits of reusable code)
 
@@ -38,9 +38,9 @@ def convert_k_to_f(temp_k):
     All CSV values are read as strings.
     """
     logging.debug(f"Calling convert_k_to_f() with {temp_k}.")
-    farenheit = round(float(((temp_k) - 273.15) * 9.0 / 5.0) + 32, 2)
-    logging.debug(f"Converted {temp_k}K to {farenheit}F.")
-    return farenheit
+    fahrenheit = round(float(((temp_k) - 273.15) * 9.0 / 5.0) + 32, 2)
+    logging.debug(f"Converted {temp_k}K to {fahrenheit}F.")
+    return fahrenheit
 
 
 def process_rows(input_file_name, output_file_name):
@@ -71,11 +71,11 @@ def process_rows(input_file_name, output_file_name):
             # For each data row in the reader
             for row in reader:
                 # Extract the values from the input row into named variables
-                Year, Month, Day, Time, TempF = row
+                Year, Month, Day, Time, TempK = row
 
                 # Call the conversion function, passing in the TempC argument
                 # Assign the return value to a new variable named TempK
-                TempK = convert_k_to_f(TempK)
+                TempF = convert_k_to_f(float(TempK))
 
                 # Write the transformed data to the output file
                 writer.writerow([Year, Month, Day, Time, TempF])
