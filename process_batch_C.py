@@ -81,14 +81,6 @@ def process_rows(input_file_name, output_file_name):
                 writer.writerow([Year, Month, Day, Time, TempF])
 
 
-def convert_k_to_f(temp_k):
-    return
-
-
-def process_rows(input_file_name, output_file_name):
-    return
-
-
 # ---------------------------------------------------------------------------
 # If this is the script we are running, then call some functions and execute code!
 # ---------------------------------------------------------------------------
@@ -96,7 +88,7 @@ def process_rows(input_file_name, output_file_name):
 if __name__ == "__main__":
     try:
         logging.info("===============================================")
-        logging.info("Starting batch process C.")
+        logging.info("Starting batch process B.")
         process_rows(INPUT_FILE_NAME, OUTPUT_FILE_NAME)
         logging.info("Processing complete! Check for new file.")
         logging.info("===============================================")
